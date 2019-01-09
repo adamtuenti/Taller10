@@ -51,11 +51,13 @@ public class Cliente {
         return  pais + " - " + provincia + " - " + ciudad + "\n" + direccion;
     }
     
-    public void setLocation(String nuevoPais, String ciudadnueva, String provinciaNueva, String direccionNueva){
-        pais = nuevoPais;
-        ciudad = ciudadnueva;
-        provincia = provinciaNueva;
-        direccion = direccionNueva;
+    
+    //----------resolvimos malos olores en este metodo----------
+    public void setLocation(Location location){
+        pais = location.nuevoPais;
+        ciudad = location.ciudadnueva;
+        provincia = location.provinciaNueva;
+        direccion = location.direccionNueva;
     }
 
     
