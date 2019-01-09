@@ -16,74 +16,56 @@ public class Example {
     public List<Employee> empleados;
     
     public void MostrarInformacion(Cliente cliente){
-        if(cliente.Nombre.equals("") && cliente.Nombre.length()> 16){
-                System.out.println("ingreso de nombre incorrecto");
+        if(validarInformacion(cliente.Nombre, cliente.Apellido, cliente.Cedula )){
+            System.out.println("Nombre: " + cliente.Nombre + ", Apellido: " + cliente.Apellido + ", con numero de cedula: " + cliente.Cedula );
+       
         }else{
-            System.out.println("ingreso de nombre correcto");
-
-        }
-        if(cliente.Apellido.equals("") && cliente.Apellido.length()> 16){
-            System.out.println("ingreso de apellido incorrecto");
-        }else{
-            System.out.println("ingreso de apellido correcto");
-
-        }
-        if(!cliente.Cedula.equals("") && cliente.Cedula.length()< 10){
-            System.out.println("ingreso de cedula incorrecto");
-        }else{
-            System.out.println("ingreso de cedula correcto");
-
-        }
-        System.out.println("Nombre: " + cliente.Nombre + ", Apellido: " + cliente.Apellido + ", con numero de cedula: " + cliente.Cedula );
-        
+            System.out.println("Datos incorrectos");
+        };        
     }
     
     public void GuardarCliente(String Nombre, String Apellido, String Cedula){
-        if(Nombre.equals("") && Nombre.length()> 16){
-                System.out.println("ingreso de nombre incorrecto");
+        if(validarInformacion(Nombre, Apellido,Cedula )){
+            Cliente cliente = new Cliente(Nombre, Apellido, Cedula);
+            this.clientes.add(cliente);
+            System.out.println(Nombre +" " + Apellido + "ha sido agregado como nuevo cliente");                   
         }else{
-            System.out.println("ingreso de nombre correcto");
-
-        }
-        if(Apellido.equals("") && Apellido.length()> 16){
-            System.out.println("ingreso de apellido incorrecto");
-        }else{
-            System.out.println("ingreso de apellido correcto");
-
-        }
-        if(!Cedula.equals("") && Cedula.length()< 10){
-            System.out.println("ingreso de cedula incorrecto");
-        }else{
-            System.out.println("ingreso de cedula correcto");
-
-        }
-        Cliente cliente = new Cliente(Nombre, Apellido, Cedula);
-        this.clientes.add(cliente);
-        System.out.println(Nombre +" " + Apellido + "ha sido agregado como nuevo cliente");
-        
+            System.out.println("Datos incorrectos");
+        };        
     }
     
-    public void validarInformacion(String Nombre, String Apellido, String Cedula ){
-        if(Nombre.equals("") && Nombre.length()> 16){
-            System.out.println("ingreso de nombre incorrecto");
+    public boolean validarInformacion(String Nombre, String Apellido, String Cedula ){
+        boolean validarNombre= Nombre.equals("")|| Nombre.length()> 16;
+        boolean validarApellido= Apellido.equals("") || Apellido.length()> 16;
+        boolean validarCedula= Cedula.equals("") || Cedula.length()!= 10;
+         
+        if(validarNombre){
+            printIncorreto("nombre");
+            return false;
         }else{
-            System.out.println("ingreso de nombre correcto");
-            
+            printCorrecto("nombre");            
         }
-        if(Apellido.equals("") && Apellido.length()> 16){
-            System.out.println("ingreso de apellido incorrecto");
+        if(validarApellido){
+            printIncorreto("apellido");
+            return false;
         }else{
-            System.out.println("ingreso de apellido correcto");
-            
+            printCorrecto("apellido");            
         }
-        if(!Cedula.equals("") && Cedula.length()< 10){
-            System.out.println("ingreso de cedula incorrecto");
+        if(validarCedula){
+             printIncorreto("cedula");
+             return false;
         }else{
-            System.out.println("ingreso de cedula correcto");
-            
+            printCorrecto("cedula");            
         }
-        
+        return true;
     }
     
+    public void printCorrecto(String a){
+        System.out.println("ingreso de "+a+" correcto");
+    }
+    
+    public void printIncorreto(String a){
+        System.out.println("ingreso de "+a+" incorrecto");
+    }   
     
 }
