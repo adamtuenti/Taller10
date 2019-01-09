@@ -8,32 +8,17 @@ package corregido;
 import java.time.ZoneId;
 import java.util.Date;
 
-
-
-abstract class Employee
-{   
+/**
+ *
+ * @author CltControl
+ */
+public class Manager extends Employee{
     
-  
-    
-    private final float rmu = (float) 386.0;
-    //salario del employee
-    private float salary;
-    //porcentaje de bonus
-    private float bonusPercentage;    
-    //variable de tipo employeeType
-    private EmployeeType employeeType;    
-
-    public Employee(float salary, float bonusPercentage, EmployeeType employeeType)    
-    {        
-        this.salary = salary;        
-        this.bonusPercentage = bonusPercentage;        
-        this.employeeType = employeeType;    
-    }    
+    public Manager(float salary, float bonusPercentage, EmployeeType employeeType) {
+        super(salary, bonusPercentage, employeeType);
+    }
     
     
-    
-    
-    //calcula el salario dependiendo del tipo de trabajador y entrega el décimo correspondiente cada 2 meses
     public float cs()
     {
         //-------------------metodos inline-----------------
@@ -69,6 +54,5 @@ abstract class Employee
         }
         return 0.0F;
     }
+    
 }
-
-

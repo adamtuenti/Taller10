@@ -47,6 +47,7 @@ public class Cliente {
     }
 
     public String mostrarLocation(){
+        //resolver mal olor inline 
         String dir = pais + " - " + provincia + " - " + ciudad;
         return  dir+ "\n" + direccion;
     }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package conmalolor;
+package corregido;
 
 
 public class Cliente {
@@ -47,8 +47,8 @@ public class Cliente {
     }
 
     public String mostrarLocation(){
-        String dir = pais + " - " + provincia + " - " + ciudad;
-        return  dir+ "\n" + direccion;
+        //-----------corregir inline temp-----------------
+        return  pais + " - " + provincia + " - " + ciudad + "\n" + direccion;
     }
     
     public void setLocation(String nuevoPais, String ciudadnueva, String provinciaNueva, String direccionNueva){
