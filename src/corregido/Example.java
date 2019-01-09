@@ -16,8 +16,8 @@ public class Example {
     public List<Employee> empleados;
     
     public void MostrarInformacion(Cliente cliente){
-        if(validarInformacion(cliente.Nombre, cliente.Apellido, cliente.Cedula )){
-            System.out.println("Nombre: " + cliente.Nombre + ", Apellido: " + cliente.Apellido + ", con numero de cedula: " + cliente.Cedula );
+        if(validarInformacion(cliente.getNombre(), cliente.getApellido(), cliente.getCedula())){
+            System.out.println("Nombre: " + cliente.getNombre()+ ", Apellido: " + cliente.getApellido() + ", con numero de cedula: " + cliente.getCedula() );
        
         }else{
             System.out.println("Datos incorrectos");

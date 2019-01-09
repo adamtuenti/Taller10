@@ -7,14 +7,22 @@ package corregido;
 
 
 public class Cliente {
-    public String Nombre;
-    public String Apellido;
-    public String Cedula;
+    //----------se hizo privados los atributos publicos
+    private String Nombre;
+    private String Apellido;
+    private String Cedula;
+    //------------
+    
+    
+    
     private String provincia;
     private String pais;
     private String ciudad;
     private String direccion;
-    private String telefono;
+    
+    //-------mal olor dead code se corrigio------
+    //private String telefono;
+    
     
     public Cliente(String Nombre, String Apellido, String Cedula) {
         this.Nombre = Nombre;
