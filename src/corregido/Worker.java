@@ -14,46 +14,29 @@ import java.util.Date;
  */
 public class Worker extends Employee{
     
-    public Worker(float salary, float bonusPercentage, EmployeeType employeeType) {
-        super(salary, bonusPercentage, employeeType);
+    public Worker(float salary, float bonusPercentage) {
+        super(salary, bonusPercentage);
     }
     
     
-    
-    public float cs()
+    @Override
+    public float calcularsalario()
     {
+        
         //-------------------metodos inline-----------------
         int month = new Date().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().getMonthValue();
         
-        switch (employeeType)         
-        {
-            case Worker:
-                //Si el mes es impar entonces le entrega el decimo junto con su salario
-                return month%2==0?salary:salary + rmu/12*2;
-            case Supervisor:
-                float valueS = salary + (bonusPercentage * 0.5F);
-                //Si el mes es impar entonces le entrega el decimo junto con su salario y un bono
-                return month%2==0?valueS:valueS + rmu/12*2;
-            case Manager:
-                float valueM = salary + (bonusPercentage * 0.7F);
-                //Si el mes es impar entonces le entrega el decimo junto con su salario y un bono
-                return month%2==0?valueM:valueM + rmu/12*2;
-        }
-        return 0.0F;
+        return month%2==0?salary:salary + rmu/12*2;
+        
     }
+    
+    
     //calcula el bonus anual
     public float CalculateYearBonus() 
     {
-        switch (employeeType)
-        {
-            case Worker:
-                return 0;
-            case Supervisor:
-                return salary + salary * 0.7F;
-            case Manager:
-                return salary + salary * 1.0F;
-        }
-        return 0.0F;
+        return 0;
     }
+
+    
     
 }

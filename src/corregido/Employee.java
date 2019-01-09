@@ -15,60 +15,30 @@ abstract class Employee
     
   
     
-    private final float rmu = (float) 386.0;
+    protected final float rmu = (float) 386.0;
     //salario del employee
-    private float salary;
+    protected float salary;
     //porcentaje de bonus
-    private float bonusPercentage;    
+    protected float bonusPercentage;    
     //variable de tipo employeeType
-    private EmployeeType employeeType;    
+   
 
-    public Employee(float salary, float bonusPercentage, EmployeeType employeeType)    
+    public Employee(float salary, float bonusPercentage)    
     {        
         this.salary = salary;        
         this.bonusPercentage = bonusPercentage;        
-        this.employeeType = employeeType;    
+          
     }    
     
     
     
-    
+    //--------------mal olor-------
     //calcula el salario dependiendo del tipo de trabajador y entrega el décimo correspondiente cada 2 meses
-    public float cs()
-    {
-        //-------------------metodos inline-----------------
-        int month = new Date().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().getMonthValue();
-        
-        switch (employeeType)         
-        {
-            case Worker:
-                //Si el mes es impar entonces le entrega el decimo junto con su salario
-                return month%2==0?salary:salary + rmu/12*2;
-            case Supervisor:
-                float valueS = salary + (bonusPercentage * 0.5F);
-                //Si el mes es impar entonces le entrega el decimo junto con su salario y un bono
-                return month%2==0?valueS:valueS + rmu/12*2;
-            case Manager:
-                float valueM = salary + (bonusPercentage * 0.7F);
-                //Si el mes es impar entonces le entrega el decimo junto con su salario y un bono
-                return month%2==0?valueM:valueM + rmu/12*2;
-        }
-        return 0.0F;
-    }
+    abstract float calcularsalario();
+    
     //calcula el bonus anual
-    public float CalculateYearBonus() 
-    {
-        switch (employeeType)
-        {
-            case Worker:
-                return 0;
-            case Supervisor:
-                return salary + salary * 0.7F;
-            case Manager:
-                return salary + salary * 1.0F;
-        }
-        return 0.0F;
-    }
+    abstract float CalculateYearBonus();
+   
 }
 
 
