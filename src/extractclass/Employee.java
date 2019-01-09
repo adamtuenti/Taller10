@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package conmalolor;
+package extractclass;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -13,9 +13,6 @@ import java.util.Date;
 
 public class Employee
 {   
-    
-    private String cedula; 
-    
     private final float rmu = (float) 386.0;
     //salario del employee
     private float salary;
